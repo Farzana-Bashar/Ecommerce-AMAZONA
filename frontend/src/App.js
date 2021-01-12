@@ -1,5 +1,6 @@
-import logo from './logo.svg';
+import React from "react";
 import './App.css';
+import data from "./data";
 
 function App() {
   const openManu=()=>{
@@ -19,7 +20,7 @@ function App() {
             <a href="index.html">Amazona</a>
         </div>
         <div className="header-links"> 
-            <a href="cart.html">Cart</a>
+            <a href="cart.html">Cart </a>
             <a href="signin.html">Sign In</a> 
         </div>    
     </header>
@@ -41,15 +42,19 @@ function App() {
     <main className="main">
         <div className="content">
             <ul className="products">
-                <li>
+              {
+                data.products.map(product =>
+                  <li>
                     <div className="product">
-                      <img className="product-image" src="/images/d1.jpg" alt="Product 1"/>
-                      <div className="product-name"> <a href="product.html"> Slim Shirt </a> </div>
-                      <div className="product-brand"> Lacosta </div>
-                      <div className="product-price"> $60 </div>
-                      <div className="product-rating"> 4.5 stars(10 Reviews) </div>
+                      <img className="product-image" src={product.image} alt="Product 1"/>
+                      <div className="product-name"> <a href="product.html"> {product.name} </a> </div>
+                      <div className="product-brand"> {product.brand} </div>
+                      <div className="product-price"> ${product.price}</div>
+                      <div className="product-rating"> {product.rating} stars({product.numReviews} Reviews) </div>
                     </div> 
-                </li>
+                </li>)
+              }
+                
             </ul>
         </div>
     </main>

@@ -40,6 +40,7 @@ body{
 .header-links a{
     color: #ffffff;
     text-decoration: none;
+    margin: 2rem;
 }
 
 .header-links a:hover{
