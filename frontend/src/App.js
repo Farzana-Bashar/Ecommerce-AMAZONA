@@ -1,6 +1,10 @@
 import React from "react";
 import './App.css';
-import data from "./data";
+import {BrowserRouter,Link,Route} from "react-router-dom"
+import HomeScreen from './screens/HomeScreen';
+import ProductScreen from './screens/ProductScreen';
+import data from "./data"
+
 
 function App() {
   const openManu=()=>{
@@ -11,13 +15,14 @@ function App() {
   }
 
   return (
+  <BrowserRouter>
     <div className="grid-container">
     <header className="header">
         <div className="brand">
             <button onClick={openManu}>
                &#9776;
             </button>
-            <a href="index.html">Amazona</a>
+            <Link to ="/">Amazona</Link>
         </div>
         <div className="header-links"> 
             <a href="cart.html">Cart </a>
@@ -41,21 +46,8 @@ function App() {
 
     <main className="main">
         <div className="content">
-            <ul className="products">
-              {
-                data.products.map(product =>
-                  <li>
-                    <div className="product">
-                      <img className="product-image" src={product.image} alt="Product 1"/>
-                      <div className="product-name"> <a href="product.html"> {product.name} </a> </div>
-                      <div className="product-brand"> {product.brand} </div>
-                      <div className="product-price"> ${product.price}</div>
-                      <div className="product-rating"> {product.rating} stars({product.numReviews} Reviews) </div>
-                    </div> 
-                </li>)
-              }
-                
-            </ul>
+        <Route path='/product/:id' component={ProductScreen} />
+        <Route path='/' exact={true} component={HomeScreen}/>   
         </div>
     </main>
 
@@ -64,6 +56,7 @@ function App() {
     </footer>
 
     </div>
+  </BrowserRouter>
   );
 }
 
