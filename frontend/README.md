@@ -1,3 +1,7 @@
+# A E-Commerce Site (Project) Based on Amazon Ecommerce Site.
+I am still working on this project. Frontend (using react, html,css) is slidely done.
+
+![preview:](../video/Amazona frontend.mp4)
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
